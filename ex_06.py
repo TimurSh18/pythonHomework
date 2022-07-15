@@ -1,18 +1,14 @@
 # Напишите программу, которая определит позицию второго вхождения строки в списке либо сообщит, что её нет.
 
-def findStr(word):
-    list1 = ["qwe", "asd", "zxc", "qwe", "ertqwe"]
+def findStr(array, word):
     count = 0
-    index = 0
-    for i in list1:
-        if i == word:
+    for i in range(len(array)):
+        if array[i] == word:
             count += 1
         if(count == 2):
-            print(f'Индекс второго вхождения строки {word} = {index}')
-            break
-        if(index == len(list1)-1 and count != 2):
-            print(f'Второго вхождения строки {word} в списке нет')
-        index += 1  
+            return(f'Индекс второго вхождения в списке {i}')
+    return('Второе вхождение отсутствует') 
 
 word = input('Введите строку: ')
-findStr(word)
+
+print(findStr(["qwe", "asd", "zxc", "qwe", "ertqwe"], word))
